@@ -3,6 +3,9 @@ import sendgrid
 from sendgrid.helpers.mail import *
 import os
 from flask_sslify import SSLify
+import jsonfrom
+from web3.auto.infura import w3
+
 
 app = Flask(__name__, static_url_path='/static')
 # sslify = SSLify(app)
@@ -35,5 +38,12 @@ def contact():
     print(response.headers)
 
   return render_template("index.html")
+
+@app.route("/refer", methods=["POST"])
+def refer():
+  print(request.get_json()['account'])
+  return json.dumps({'success':True}), 200, {'ContentType':'application/json'}
+
+
 if __name__ == "__main__":
   app.run(host='0.0.0.0')
