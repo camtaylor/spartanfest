@@ -44,7 +44,7 @@ def contact():
 @app.route("/refer", methods=["POST"])
 def refer():
   w3 = web3.Web3(web3.HTTPProvider("https://ropsten.infura.io/v3/55a7676bd3db4746a9a536918d9d448e"))
-  contract_address = w3.toChecksumAddress('0xd5b319cCFEF5B5D2BD1C81Fb6B46109Eef63F0eE'.lower())
+  contract_address = w3.toChecksumAddress('0x8d5334727d81cc2ef3b3e8d3623769c2f2aa4a9d'.lower())
   advertiser_address = w3.toChecksumAddress('0x5cBA0F3a23023B711C0d94527247a92eea9c982d'.lower())
   adtract = w3.eth.contract(address=contract_address, abi=contract_abi.abi)
   refer_key = request.get_json()['account']
